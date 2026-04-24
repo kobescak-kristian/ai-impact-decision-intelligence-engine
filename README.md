@@ -122,3 +122,23 @@ Pipeline:
   "outcome": "later_converted",
   "lead_value": 5500
 }
+
+## Known Limitation
+
+**Financial multipliers are not calibrated from real data**
+False positive cost (15% of lead value) and delay penalty (10%) are fixed constants defined in `config/settings.py`. All financial output, including the net impact figure, is calculated against these assumed values. In production, these would need to be derived from actual sales cycle costs per customer segment.
+
+**Outcome data reliability**
+The `later_converted` and `converted_delayed` outcome types require a feedback loop that does not exist in this system. In production, outcome data is partial, delayed, and often absent. The missed opportunity value (the largest loss figure in the demo) is therefore the least reliable metric.
+
+**Recommendations are not anchored to current system state**
+The impact analyzer recommends threshold changes (e.g. increase from 0.60 to 0.68) without knowing what the actual upstream threshold is set to. In simulation mode, the `from_value` in recommendations is an illustrative default, not read from system config.
+
+**No coverage gate**
+The evaluator runs full analysis regardless of how many leads have outcomes recorded. A system with 10% outcome coverage will produce the same confident-looking metrics as one with 90% coverage. A coverage gate (returning `insufficient_data` below a defined threshold) is not implemented in v1.
+
+**Not production-ready**
+- No authentication on API endpoints
+- SQLite is not suitable for concurrent writes at scale
+- No date range filtering on `/impact` — runs over full dataset
+- Dataset is simulated and intentionally constructed to demonstrate both strong and weak decision performance
