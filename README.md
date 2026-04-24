@@ -109,7 +109,6 @@ Pipeline:
 - Reduces reliance on manual analysis  
 - Creates a continuous feedback loop  
 
----
 
 ## Example
 
