@@ -244,8 +244,8 @@ Complete — v1.0
 
 This project is part of a larger AI decision system:
 
-- Reliability Engine → ensures outputs are valid and safe  
-- Decision Engine → evaluates whether decisions were correct  
-- Impact Engine → measures financial consequences of decisions  
+- **[Reliability Engine](https://github.com/kobescak-kristian/ai-workflow-reliability-engine)** → prevents invalid AI outputs from entering workflows  
+- **[Decision Engine](https://github.com/kobescak-kristian/ai-decision-engine-feedback)** → tracks outcomes and evaluates decision correctness  
+- Impact Engine → measures financial impact and optimizes thresholds  
 
-Each layer solves a different failure point in real-world AI systems.
+→ Complete system: validation → evaluation → financial impact
