@@ -237,3 +237,15 @@ The evaluator runs full analysis regardless of how many leads have outcomes reco
 ## Status
 
 Complete — v1.0
+
+---
+
+## System Context
+
+This project is part of a larger AI decision system:
+
+- Reliability Engine → ensures outputs are valid and safe  
+- Decision Engine → evaluates whether decisions were correct  
+- Impact Engine → measures financial consequences of decisions  
+
+Each layer solves a different failure point in real-world AI systems.
